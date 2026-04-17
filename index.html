@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Workflow Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="header">
+  <h2>Workflow Dashboard</h2>
+  <button onclick="toggleDark()">Dark</button>
+</div>
+
+<div class="stats">
+  <div>Open: <span id="count-open">0</span></div>
+  <div>Progress: <span id="count-progress">0</span></div>
+  <div>Testing: <span id="count-testing">0</span></div>
+  <div>Done: <span id="count-done">0</span></div>
+</div>
+
+<div class="top">
+  <input id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add Task</button>
+</div>
+
+<div class="board">
+
+  <div class="column" id="open" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Open</h3>
+  </div>
+
+  <div class="column" id="progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Progress</h3>
+  </div>
+
+  <div class="column" id="testing" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Testing</h3>
+  </div>
+
+  <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h3>Done</h3>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <h3>Edit Task</h3>
+    <input id="editInput">
+    <div class="modal-actions">
+      <button onclick="saveEdit()">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
